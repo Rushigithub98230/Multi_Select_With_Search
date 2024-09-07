@@ -23,8 +23,25 @@ export class AppComponent {
     { id: 1, name: 'John Doe' },
     { id: 2, name: 'Jane Smith' },
     { id: 3, name: 'Michael Johnson' },
-    { id: 4, name: 'Emily Davis' }
+    { id: 4, name: 'Emily Davis' },
+    { id: 5, name: 'David Brown' },
+    { id: 6, name: 'Sarah Wilson' },
+    { id: 7, name: 'James White' },
+    { id: 8, name: 'Patricia Miller' },
+    { id: 9, name: 'Robert Taylor' },
+    { id: 10, name: 'Linda Anderson' },
+    { id: 11, name: 'Christopher Moore' },
+    { id: 12, name: 'Karen Thomas' },
+    { id: 13, name: 'Steven Harris' },
+    { id: 14, name: 'Susan Clark' },
+    { id: 15, name: 'Charles Lewis' },
+    { id: 16, name: 'Jessica Walker' },
+    { id: 17, name: 'Daniel Hall' },
+    { id: 18, name: 'Barbara Allen' },
+    { id: 19, name: 'Matthew Young' },
+    { id: 20, name: 'Elizabeth King' }
   ];
+  
 
   // Filtered patient list based on search
   filteredPatients: Patient[] = [...this.patients];
@@ -40,6 +57,10 @@ export class AppComponent {
     this.filteredPatients = this.patients.filter(patient => 
       patient.name.toLowerCase().includes(searchTermLower)
     );
+    this.filteredPatients = [
+      ...this.filteredPatients,
+      ...this.selectedPatients.filter(selected => !this.filteredPatients.some(patient => patient.id === selected.id))
+    ];
   }
 
   // Compare function for the multi-select
