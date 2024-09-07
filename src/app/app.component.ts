@@ -47,6 +47,7 @@ export class AppComponent {
   filteredPatients: Patient[] = [...this.patients];
 
   // To track selected patients
+  //always provide the type and avoid using 'any'
   selectedPatients: Patient[] = [];
 
   ngOnInit(): void {}
